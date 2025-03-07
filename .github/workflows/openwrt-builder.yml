@@ -17,6 +17,9 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 8 1 * *"
+  push:
+    branches:
+      - main
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt.git
