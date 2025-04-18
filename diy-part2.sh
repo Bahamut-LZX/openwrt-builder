@@ -19,6 +19,9 @@ sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.::0:99999:7
 # Modify ttyd config
 sed -i 's#/bin/login#/usr/libexec/login.sh#g' feeds/packages/utils/ttyd/files/ttyd.config
 
+# Add default lan port
+sed -i "/[ -d /sys/class/net/eth1 ] && ucidef_set_interface_wan 'eth1'/a\[ -d /sys/class/net/eth2 ] && ucidef_set_interface_lan 'eth0 eth2'" package/base-files/files/etc/board.d/99-default_network
+
 # Modify default theme
 #sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
