@@ -25,3 +25,6 @@ sed -i "/[ -d /sys/class/net/eth1 ] && ucidef_set_interface_wan 'eth1'/a\[ -d /s
 # Modify hostname
 sed -i 's/ImmortalWrt/Bahamut-LZX/g' package/base-files/files/bin/config_generate
 
+#set llvm.download-ci-llvm=false
+sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile
+
